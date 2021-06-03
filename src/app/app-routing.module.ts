@@ -1,10 +1,12 @@
-import { FilmeComponent } from './views/filme/filme.component';
+import { SobreComponent } from './views/sobre/sobre.component';
+import { GeneroComponent } from './views/genero/genero.component';
 import { JogoComponent } from './views/jogo/jogo.component';
-import { LivroComponent } from './views/livro/livro.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  { path: 'generos', component : GeneroComponent },
+  { path: 'sobre', component : SobreComponent },
   { path: 'jogos', component : JogoComponent }
 ];
 
