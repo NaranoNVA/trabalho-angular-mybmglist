@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JogoComponent } from './views/jogo/jogo.component';
 import { GeneroComponent } from './views/genero/genero.component';
 import { SobreComponent } from './views/sobre/sobre.component';
+import { FormsModule } from '@angular/forms';
 
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatIconModule } from '@angular/material/icon';
@@ -16,6 +17,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
+import { MatFormField } from '@angular/material/form-field';
+
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
