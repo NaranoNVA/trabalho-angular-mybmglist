@@ -3,12 +3,12 @@ export class Jogo {
   id?: number;
   nome: string;
   sinopse: string;
-  generos: Array<Genero>;
+  generos: Array<number>;
   nota: number;
   estado: string;
   review: string;
 
-  constructor(nome: string, sinopse: string, generos: Array<Genero>, nota: number, estado: string, review: string){
+  constructor(nome: string, sinopse: string, generos: Array<number>, nota: number, estado: string, review: string){
     this.nome = nome;
     this.sinopse = sinopse;
     this.generos = generos;
