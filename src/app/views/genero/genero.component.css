@@ -1,0 +1,7 @@
+.mat-row .mat-cell {
+  transition: all 0.7s;
+}
+
+.mat-row:hover .mat-cell {
+  background-color: rgba(104, 58, 182, 0.103);
+}

@@ -1,14 +1,20 @@
 <h2>Géneros</h2>
 
+<div>
+  <button mat-flat-button color="primary" (click)="novo();">Novo</button>
+</div>
+
+<div *ngIf="genero">
   <mat-form-field appearance="outline">
-    <mat-label>Outline form field</mat-label>
-    <input matInput placeholder="Placeholder">
-    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    <mat-hint>Hint</mat-hint>
+    <mat-label>Nome</mat-label>
+    <input matInput placeholder="Placeholder"  [(ngModel)]="genero.nome">
   </mat-form-field>
+  <button mat-flat-button color="primary" (click)="salvar()">Salvar</button>
+  <button mat-flat-button color="warn" (click)="cancelar()">Cencelar</button>
+</div>
 
 <div>
-  <mat-table [dataSource]="generos">
+  <mat-table [dataSource]="generos" class="">
 
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
@@ -20,15 +26,15 @@
       <mat-cell *matCellDef="let genero"> {{ genero.nome }}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="action">
+    <ng-container matColumnDef="acoes">
       <mat-header-cell *matHeaderCellDef>
         Ações
       </mat-header-cell>
       <mat-cell *matCellDef="let genero">
-        <button mat-button>
+        <button mat-button (click)="atualizar(genero)">
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-button color="warn">
+        <button mat-button color="warn" (click)="excluir(genero.id)">
           <mat-icon>remove_circle</mat-icon>
         </button>
       </mat-cell>
