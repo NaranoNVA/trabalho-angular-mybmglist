@@ -36,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
     LayoutModule,
     MatToolbarModule,
     MatSidenavModule,
@@ -44,7 +45,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatListModule,
     MatCardModule,
     MatSnackBarModule,
-    MatTableModule
+    MatTableModule,
+    MatFormField
   ],
   providers: [],
   bootstrap: [AppComponent]
