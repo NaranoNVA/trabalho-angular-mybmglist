@@ -1,6 +1,34 @@
 <h2>Meus jogos:</h2>
 
 <div>
+  <button mat-flat-button color="primary" (click)="novo();">Novo</button>
+</div>
+
+<div *ngIf="jogo">
+  <mat-form-field appearance="outline">
+      <mat-label>Nome:</mat-label>
+      <input matInput placeholder="Placeholder"  [(ngModel)]="jogo.nome">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+      <mat-label>Sinopse: </mat-label>
+      <input matInput placeholder="Placeholder"  [(ngModel)]="jogo.sinopse">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+      <mat-label>Gêneros:</mat-label>
+      <input matInput placeholder="Placeholder"  [(ngModel)]="jogo.generos">
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+    <mat-label>Estado:</mat-label>
+    <input matInput placeholder="Placeholder"  [(ngModel)]="jogo.estado">
+</mat-form-field>
+
+  <button mat-flat-button color="primary" (click)="salvar()">Salvar</button>
+  <button mat-flat-button color="warn" (click)="cancelar()">Cencelar</button>
+</div>
+
+<div>
   <mat-table [dataSource]="jogos">
 
     <ng-container matColumnDef="nome">
@@ -29,10 +57,10 @@
         Ações
       </mat-header-cell>
       <mat-cell *matCellDef="let jogo">
-        <button mat-button>
+        <button mat-button (click)="editar(jogo)">
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-button color="warn">
+        <button mat-button color="warn" (click)="remover(jogo.id)">
           <mat-icon>remove_circle</mat-icon>
         </button>
       </mat-cell>

@@ -53,12 +53,17 @@ export class JogoComponent implements OnInit {
   }
 
   cancelar() {
-    this.jogoSelecionado = undefined;
+    this.jogo = undefined;
     this.listar();
   }
 
+  novo(): void{
+    this.jogo = new Jogo();
+    this.inserindo = false;
+  }
+
   salvar() {
-    if (this.inserindo){
+    if (!this.inserindo){
       this.inserir();
     } else {
       this.atualizar();
@@ -66,12 +71,51 @@ export class JogoComponent implements OnInit {
   }
 
   private inserir(){
-    this.jogoService.inserir(this.jogoSelecionado).subscribe(() => {
+    this.jogoService.inserir(this.jogo).subscribe(() => {
+      this.mostrarSnackBar('Jogo inserido com sucesso');
+      this.listar();
       this.cancelar();
-      this.mostrarSnackBar('Usuário inserido com sucesso');
     },
     error => {
       this.handleServiceError(error);
     });
-}
+  }
+
+  private atualizar(){
+    this.jogoService.atualizar(this.jogo).subscribe(() => {
+      this.cancelar();
+      this.mostrarSnackBar('Jogo Atualizado');
+      this.listar();
+    },
+    error => {
+      this.handleServiceError(error);
+    });
+  }
+
+  criar() {
+    this.inserindo = true;
+    this.jogoSelecionado = {
+      id: undefined,
+      nome: '',
+      sinopse: '',
+      generos: '',
+      nota: '',
+      estado: '',
+      review: ''
+    };
+  }
+
+  remover(id: number){
+    this.jogoService.remover(id).subscribe(()=>{
+      this.listar();
+    },
+    error => {
+      this.mostrarSnackBar(error);
+    });
+  }
+
+  editar(jogo: Jogo){
+    this.jogo = jogo;
+    this.inserindo = true;
+  }
 }

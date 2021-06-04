@@ -72,6 +72,7 @@ export class GeneroComponent implements OnInit {
     this.modoEdicao = true;
   }
 
+
   excluir(id?: number): void{
     if (!id) { return; }
     this.generoService.remover(id).subscribe(() => {
