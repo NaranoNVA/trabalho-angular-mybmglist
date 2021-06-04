@@ -4,16 +4,18 @@
       "id": 1,
       "nome": "League of Legends",
       "sinopse": "League of Legends é um jogo em equipes com mais de 140 Campeões com os quais você pode fazer jogadas insanas. Jogue agora, é grátis!",
-      "generos" : [{
-        "id" : 1
+      "generos": [
+        {
+          "id": 1
         },
         {
-        "id" : 2
-        } ],
-        "nota" : 8,
-        "estado": "Jogando",
-        "review": "Adorei jogar, mas a comunidade é muito toxica, ou melhor dizendo. x1 Lixo?"
-	  }
+          "id": 2
+        }
+      ],
+      "nota": 8,
+      "estado": "Jogando",
+      "review": "Adorei jogar, mas a comunidade é muito toxica, ou melhor dizendo. x1 Lixo?"
+    }
   ],
   "generos": [
     {
@@ -27,6 +29,10 @@
     {
       "id": 3,
       "nome": "Aventura"
+    },
+    {
+      "nome": "Fantasia",
+      "id": 4
     }
   ]
 }

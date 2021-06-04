@@ -13,7 +13,9 @@ export class GeneroComponent implements OnInit {
 
   generos = new Array<Genero>();
   genero?: Genero;
-  colunas = ['id', 'nome', 'action'];
+  modoEdicao = false;
+
+  colunas = ['id', 'nome', 'acoes'];
 
   constructor(private generoService: GeneroService, private snackBar: MatSnackBar) { }
 
@@ -29,7 +31,6 @@ export class GeneroComponent implements OnInit {
     this.generoService.listar().subscribe(
       generos => {
         this.generos = generos;
-        console.log(this.generos);
       },
       error => {
         const e = error as HttpErrorResponse;
@@ -38,4 +39,44 @@ export class GeneroComponent implements OnInit {
       });
   }
 
+  novo(): void{
+    this.genero = new Genero();
+    this.modoEdicao = false;
+  }
+
+  cancelar(): void {
+    this.genero = undefined;
+    this.listar();
+  }
+
+  salvar(): void {
+    if ( !this.modoEdicao ){
+      this.generoService.inserir(this.genero).subscribe( genero => {
+        this.listar();
+        this.genero = undefined;
+        this.mostrarSnackBar('Género adicionado com sucesso!');
+      });
+    }
+    else
+    {
+      this.generoService.atualizar(this.genero).subscribe( genero => {
+        this.listar();
+        this.genero = undefined;
+        this.mostrarSnackBar('Género atualizado com sucesso!');
+      });
+    }
+  }
+
+  atualizar(genero: Genero): void{
+    this.genero = genero;
+    this.modoEdicao = true;
+  }
+
+  excluir(id?: number): void{
+    if (!id) { return; }
+    this.generoService.remover(id).subscribe(() => {
+      this.listar();
+      this.mostrarSnackBar('Género removido com sucesso!');
+    });
+  }
 }
