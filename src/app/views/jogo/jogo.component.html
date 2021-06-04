@@ -1,1 +1,44 @@
-<p>jogo works!</p>
+<h2>Meus jogos:</h2>
+
+<div>
+  <mat-table [dataSource]="jogos">
+
+    <ng-container matColumnDef="nome">
+      <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+      <mat-cell *matCellDef="let jogo"> {{ jogo.nome }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sinopse">
+        <mat-header-cell *matHeaderCellDef>Sinopse</mat-header-cell>
+        <mat-cell *matCellDef="let jogo"> {{ jogo.sinopse }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="generos">
+        <mat-header-cell *matHeaderCellDef>Gêneros:</mat-header-cell>
+        <mat-cell *matCellDef="let jogo"> {{ jogo.generos }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="estado">
+        <mat-header-cell *matHeaderCellDef>Status:</mat-header-cell>
+        <mat-cell *matCellDef="let jogo"> {{ jogo.estado }}</mat-cell>
+      </ng-container>
+  
+
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef>
+        Ações
+      </mat-header-cell>
+      <mat-cell *matCellDef="let jogo">
+        <button mat-button>
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-button color="warn">
+          <mat-icon>remove_circle</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="colunas"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: colunas"></mat-row>
+  </mat-table>
+</div>
