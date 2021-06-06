@@ -1,8 +1,22 @@
 .sidenav{
   width: 300px;
+  background-color: #332f64;
 }
 
 .menu-icon {
   margin-right: 10px;
+  color: black;
 }
 
+.list-menu{
+  color: white;
+}
+
+.bg-color{
+  background-color: black;
+  color: white;
+}
+
+.bg-mat-sidenav{
+  background-color: #4c4788;
+}

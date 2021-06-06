@@ -1,31 +1,31 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="bg-color">
   <mat-toolbar-row >
     <button mat-icon-button	(click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <h1>MyGList</h1>
+    <h1>  MyGList</h1>
   </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-sidenav-container>
+<mat-sidenav-container class="bg-mat-sidenav">
   <mat-sidenav class="sidenav" #sidenav mode="side" opened>
     <mat-nav-list>
-      <a mat-list-item routerLink="/jogos">
+      <a mat-list-item class="list-menu" routerLink="/jogos">
         <mat-icon class="menu-icon">games</mat-icon>
         Jogos
       </a>
-      <a mat-list-item routerLink="/generos">
+      <a mat-list-item class="list-menu" routerLink="/generos">
         <mat-icon class="menu-icon">transgender</mat-icon>
         Gênero
       </a>
-      <a mat-list-item routerLink="/sobre">
+      <a mat-list-item class="list-menu" routerLink="/sobre">
         <mat-icon class="menu-icon">help</mat-icon>
         Sobre
       </a>
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-sidenav-content>
+  <mat-sidenav-content> 
     <div style="min-height: calc(100vh - 64px);">
       <main>
         <mat-card>

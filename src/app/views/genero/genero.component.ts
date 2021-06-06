@@ -15,7 +15,7 @@ export class GeneroComponent implements OnInit {
   genero?: Genero;
   modoEdicao = false;
 
-  colunas = ['nome', 'acoes'];
+  colunas = ['nome', 'icone', 'acoes'];
 
   constructor(private generoService: GeneroService, private snackBar: MatSnackBar) { }
 

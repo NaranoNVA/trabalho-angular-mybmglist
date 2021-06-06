@@ -20,11 +20,10 @@
       <mat-option value="Zerei">Zerei</mat-option>
     </mat-select>
 </mat-form-field>
-
 <mat-form-field appearance="outline" class="inputsJogo">
   <mat-label>Gêneros:</mat-label>
     <mat-select [(ngModel)]="jogo.generos" multiple>
-      <mat-option *ngFor="let genero of generos" value="{{genero.nome}}"> {{ genero.nome }}</mat-option> 
+      <mat-option *ngFor="let genero of generos" value="{{genero.nome}}">  <mat-icon>{{genero.icone}}</mat-icon> {{ genero.nome }} </mat-option> 
     </mat-select>
 </mat-form-field>
 </div>

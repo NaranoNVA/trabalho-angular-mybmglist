@@ -16,7 +16,7 @@ export class JogoComponent implements OnInit {
 
   jogos = new Array<Jogo>();
   jogo?: Jogo;
-  colunas = ['nome', 'sinopse', 'generos', 'estado', 'review','nota','action'];
+  colunas = ['nome', 'sinopse', 'generos', 'estado', 'review', 'nota', 'action'];
   cor = '';
   generos = new Array<Genero>();
 
@@ -57,8 +57,6 @@ export class JogoComponent implements OnInit {
       });
   }
 
-  
-  
   private handleServiceError(error: any): void{
     const e = error as HttpErrorResponse;
     console.log(e);

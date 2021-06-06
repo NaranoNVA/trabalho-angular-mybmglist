@@ -9,6 +9,20 @@
     <mat-label>Nome</mat-label>
     <input matInput placeholder="Placeholder"  [(ngModel)]="genero.nome">
   </mat-form-field>
+
+  <mat-form-field appearance="outline" class="inputsJogo">
+    <mat-label>Ícone:</mat-label>
+      <mat-select [(ngModel)]="genero.icone" multiple>
+        <mat-option value="mood_bad"> <mat-icon>mood_bad</mat-icon> </mat-option> 
+        <mat-option value="directions_car_filled"> <mat-icon>directions_car_filled</mat-icon> </mat-option> 
+        <mat-option value="psychology"> <mat-icon>psychology</mat-icon> </mat-option>
+        <mat-option value="extension"> <mat-icon>extension</mat-icon> </mat-option>
+        <mat-option value="sports_mma"> <mat-icon>sports_mma</mat-icon> </mat-option>
+        <mat-option value="sports_soccer"> <mat-icon>sports_soccer</mat-icon> </mat-option>
+        <mat-option value="piano"> <mat-icon>piano</mat-icon> </mat-option>
+      </mat-select>
+  </mat-form-field>
+
   <button mat-flat-button color="primary" (click)="salvar()">Salvar</button>
   <button mat-flat-button color="warn" (click)="cancelar()">Cencelar</button>
 </div>
@@ -19,6 +33,11 @@
     <ng-container matColumnDef="nome">
       <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
       <mat-cell *matCellDef="let genero"> {{ genero.nome }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="icone">
+      <mat-header-cell *matHeaderCellDef>icone</mat-header-cell>
+      <mat-cell *matCellDef="let genero"> <mat-icon> {{ genero.icone }} </mat-icon> </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="acoes">
