@@ -1,5 +1,7 @@
 import { JogoService } from './../../services/jogo.service';
 import { Jogo } from 'src/app/models/jogo';
+import { GeneroService } from './../../services/genero.service';
+import { Genero } from 'src/app/models/genero';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -14,18 +16,32 @@ export class JogoComponent implements OnInit {
 
   jogos = new Array<Jogo>();
   jogo?: Jogo;
-  colunas = ['nome', 'sinopse', 'generos', 'estado', 'action'];
+  colunas = ['nome', 'sinopse', 'generos', 'estado', 'review','nota','action'];
+  cor = '';
+  generos = new Array<Genero>();
+
   jogoSelecionado?: Jogo = undefined;
   inserindo = false;
 
-  constructor(private jogoService: JogoService, private snackBar: MatSnackBar) { }
+  // tslint:disable-next-line: no-shadowed-variable
+  constructor(private jogoService: JogoService, private snackBar: MatSnackBar, private GeneroService: GeneroService) { }
 
   ngOnInit(): void {
     this.listar();
+    this.preencherArray();
   }
 
   mostrarSnackBar(msg: string): void{
     this.snackBar.open(msg, '', {duration: 3000});
+  }
+
+  preencherArray(): void{
+    this.GeneroService.listar().subscribe(
+      generos => {
+        this.generos = generos;
+        console.log(this.generos);
+      }
+    );
   }
 
   listar(): void{
@@ -40,6 +56,8 @@ export class JogoComponent implements OnInit {
         this.mostrarSnackBar('Erro ao listar os jogos! Tente novamente mais tarde!');
       });
   }
+
+  
   
   private handleServiceError(error: any): void{
     const e = error as HttpErrorResponse;

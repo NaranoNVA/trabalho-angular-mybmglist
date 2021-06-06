@@ -15,12 +15,7 @@
 
 <div>
   <mat-table [dataSource]="generos" class="">
-
-    <ng-container matColumnDef="id">
-      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
-      <mat-cell *matCellDef="let genero">{{ genero.id }}</mat-cell>
-    </ng-container>
-
+    
     <ng-container matColumnDef="nome">
       <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
       <mat-cell *matCellDef="let genero"> {{ genero.nome }}</mat-cell>

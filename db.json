@@ -24,6 +24,20 @@
       "estado": "Teste",
       "review": "",
       "id": 2
+    },
+    {
+      "nome": "Nier Replicant",
+      "sinopse": "*",
+      "generos": [
+        "Aventura",
+        "Fantasia",
+        "RPG",
+        "Hack and Slash"
+      ],
+      "nota": "",
+      "estado": "Tenho",
+      "review": "*",
+      "id": 3
     }
   ],
   "generos": [
@@ -46,6 +60,14 @@
     {
       "nome": "RPG",
       "id": 5
+    },
+    {
+      "nome": "FPS",
+      "id": 6
+    },
+    {
+      "nome": "Hack and Slash",
+      "id": 7
     }
   ]
 }

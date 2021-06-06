@@ -1,35 +1,62 @@
 <h2>Meus jogos:</h2>
 
-<div>
+<div class="inputsJogo">
   <button mat-flat-button color="primary" (click)="novo();">Novo</button>
 </div>
 
 <div *ngIf="jogo">
-  <mat-form-field appearance="outline">
+  
+<div>
+  <mat-form-field appearance="outline" class="inputsJogo">
       <mat-label>Nome:</mat-label>
-      <input matInput placeholder="Placeholder"  [(ngModel)]="jogo.nome">
-  </mat-form-field>
-  <mat-form-field appearance="outline">
-      <mat-label>Sinopse: </mat-label>
-      <input matInput placeholder="Placeholder"  [(ngModel)]="jogo.sinopse">
+      <input matInput placeholder="João Silva"  [(ngModel)]="jogo.nome">
   </mat-form-field>
 
-  <mat-form-field appearance="outline">
-      <mat-label>Gêneros:</mat-label>
-      <input matInput placeholder="Placeholder"  [(ngModel)]="jogo.generos">
-</mat-form-field>
-
-<mat-form-field appearance="outline">
+  <mat-form-field appearance="outline" class="inputsJogo">
     <mat-label>Estado:</mat-label>
-    <input matInput placeholder="Placeholder"  [(ngModel)]="jogo.estado">
+    <mat-select [(ngModel)]="jogo.estado">
+      <mat-option value="Quero">Quero</mat-option>  
+      <mat-option value="Tenho">Tenho</mat-option>
+      <mat-option value="Zerei">Zerei</mat-option>
+    </mat-select>
 </mat-form-field>
 
-  <button mat-flat-button color="primary" (click)="salvar()">Salvar</button>
-  <button mat-flat-button color="warn" (click)="cancelar()">Cencelar</button>
+<mat-form-field appearance="outline" class="inputsJogo">
+  <mat-label>Gêneros:</mat-label>
+    <mat-select [(ngModel)]="jogo.generos" multiple>
+      <mat-option *ngFor="let genero of generos" value="{{genero.nome}}"> {{ genero.nome }}</mat-option> 
+    </mat-select>
+</mat-form-field>
 </div>
 
 <div>
-  <mat-table [dataSource]="jogos">
+<mat-form-field appearance="outline" class="inputsJogo">
+  <mat-label>Review:</mat-label>
+  <input matInput [(ngModel)]="jogo.review">
+</mat-form-field>
+
+<mat-form-field appearance="outline" class="inputsJogo">
+  <mat-label>Nota:</mat-label>
+  <input matInput placeholder="10"  [(ngModel)]="jogo.nota">
+</mat-form-field>
+</div>
+
+<div>
+<mat-form-field appearance="outline" class="inputsJogo">
+  <mat-label>Sinopse: </mat-label>
+  <input matInput [(ngModel)]="jogo.sinopse">
+</mat-form-field>
+</div>
+
+<div>
+  <button class="inputsJogo" mat-flat-button color="primary" (click)="salvar()">Salvar</button>
+  <button class="inputsJogo" mat-flat-button color="warn" (click)="cancelar()">Cancelar</button>
+</div>
+
+</div>
+
+<div>
+  <mat-table class="inputsJogo" [dataSource]="jogos">
 
     <ng-container matColumnDef="nome">
       <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
@@ -43,7 +70,7 @@
 
       <ng-container matColumnDef="generos">
         <mat-header-cell *matHeaderCellDef>Gêneros:</mat-header-cell>
-        <mat-cell *matCellDef="let jogo"> {{ jogo.generos }}</mat-cell>
+        <mat-cell *matCellDef="let jogo"> {{ jogo.generos }} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="estado">
@@ -51,6 +78,15 @@
         <mat-cell *matCellDef="let jogo"> {{ jogo.estado }}</mat-cell>
       </ng-container>
   
+      <ng-container matColumnDef="review">
+        <mat-header-cell *matHeaderCellDef>Review:</mat-header-cell>
+        <mat-cell *matCellDef="let jogo"> {{ jogo.review }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="nota">
+        <mat-header-cell *matHeaderCellDef>Nota:</mat-header-cell>
+        <mat-cell *matCellDef="let jogo"> {{ jogo.nota }}</mat-cell>
+      </ng-container>
 
     <ng-container matColumnDef="action">
       <mat-header-cell *matHeaderCellDef>
