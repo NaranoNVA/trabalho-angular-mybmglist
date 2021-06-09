@@ -5,3 +5,44 @@
 .tableColor{
     background-color: #FFAAF1;
 }
+
+.notaBaixa{
+    color: red;
+    font-weight: bold;
+}
+
+.notaMedia{
+    color: lightgreen;
+    font-weight: bold;
+}
+
+.notaAlta{
+    color: darkgreen;
+    font-weight: bold;
+}
+
+.quero{
+    font-weight: bold;
+    background-color: yellow;
+    background: url('https://i.ibb.co/qYkbDXN/wait-pngrepo-com.png');
+    background-size: 20%;
+    background-repeat: no-repeat;
+    background-position:  center;
+}
+
+.zerei{
+    font-weight: bold;
+    background-color: green;
+    background: url('https://i.ibb.co/t2k2dNX/checkmark-24-512.png');
+    background-size: 20%;
+    background-repeat: no-repeat;
+    background-position:  center;
+}
+
+.tenho{
+    font-weight: bold;
+    background: url('https://i.ibb.co/2jDkmnG/Thumb-up-icon-2-svg.png" alt="Thumb-up-icon-2-svg');
+    background-size: 20%;
+    background-repeat: no-repeat;
+    background-position:  center;
+}

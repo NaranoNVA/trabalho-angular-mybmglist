@@ -8,7 +8,7 @@
         "Moba"
       ],
       "nota": 8,
-      "estado": "Jogando",
+      "estado": "Tenho",
       "review": "Adorei jogar, mas a comunidade é muito toxica, ou melhor dizendo. x1 Lixo?"
     },
     {
@@ -18,9 +18,32 @@
         "RPG"
       ],
       "nota": "",
-      "estado": "",
+      "estado": "Zerei",
       "review": "",
       "id": 2
+    },
+    {
+      "nome": "Nier",
+      "sinopse": "",
+      "generos": [
+        "Hack and Slash",
+        "RPG"
+      ],
+      "nota": 0,
+      "estado": "Tenho",
+      "review": "",
+      "id": 3
+    },
+    {
+      "nome": "RE8",
+      "sinopse": "",
+      "generos": [
+        "FPS"
+      ],
+      "nota": 0,
+      "estado": "Quero",
+      "review": "",
+      "id": 4
     }
   ],
   "generos": [
@@ -32,7 +55,9 @@
     {
       "id": 2,
       "nome": "Ação",
-      "icone": ""
+      "icone": [
+        "sports_mma"
+      ]
     },
     {
       "id": 3,
@@ -60,6 +85,13 @@
         "psychology"
       ],
       "id": 8
+    },
+    {
+      "nome": "Esporte",
+      "icone": [
+        "sports_soccer"
+      ],
+      "id": 9
     }
   ]
 }

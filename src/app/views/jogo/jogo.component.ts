@@ -4,7 +4,7 @@ import { GeneroService } from './../../services/genero.service';
 import { Genero } from 'src/app/models/genero';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, Component, OnInit } from '@angular/core';
 
 
 @Component({
@@ -12,16 +12,18 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './jogo.component.html',
   styleUrls: ['./jogo.component.css']
 })
-export class JogoComponent implements OnInit {
+export class JogoComponent implements OnInit, AfterContentChecked {
 
   jogos = new Array<Jogo>();
   jogo?: Jogo;
   colunas = ['nome', 'sinopse', 'generos', 'estado', 'review', 'nota', 'action'];
   cor = '';
   generos = new Array<Genero>();
-
+  genero?: Genero;
   jogoSelecionado?: Jogo = undefined;
   inserindo = false;
+  teste?: undefined;
+  numJogados?: number;
 
   // tslint:disable-next-line: no-shadowed-variable
   constructor(private jogoService: JogoService, private snackBar: MatSnackBar, private GeneroService: GeneroService) { }
@@ -29,6 +31,10 @@ export class JogoComponent implements OnInit {
   ngOnInit(): void {
     this.listar();
     this.preencherArray();
+  }
+
+  ngAfterContentChecked(): void {
+    this.aplicaCor();
   }
 
   mostrarSnackBar(msg: string): void{
@@ -42,6 +48,46 @@ export class JogoComponent implements OnInit {
         console.log(this.generos);
       }
     );
+  }
+
+  aplicaCor(): void {
+    const notas =  document.querySelectorAll('[id^="nota"]');
+    const estado =  document.querySelectorAll('[id^="status"]');
+    for (let i = 0; i < notas.length; i++){
+      notas[i].id = 'nota-' + i;
+    }
+    for (let i = 0; i < this.jogos.length; i++){
+      const nota = document.getElementById('nota-' + i );
+      const notaNumber = Number(nota?.innerText);
+      if (notaNumber <= 5){
+        nota?.classList.add('notaBaixa');
+      } else if (notaNumber >= 5 && notaNumber <= 8){
+        nota?.classList.add('notaMedia');
+      } else{
+        nota?.classList.add('notaAlta');
+      }
+    }
+
+    for (let i = 0; i < estado.length; i++){
+      estado[i].id = 'estado-' + i;
+    }
+    for (let i = 0; i < this.jogos.length; i++){
+      // tslint:disable-next-line: no-shadowed-variable
+      const estado = document.getElementById('estado-' + i );
+      const estadoValue = String(estado?.innerText);
+      if (estadoValue === 'Quero'){
+        estado?.classList.add('quero');
+      } else if (estadoValue === 'Zerei'){
+        estado?.classList.add('zerei');
+      } else{
+        estado?.classList.add('tenho');
+      }
+    }
+  }
+
+  filtra(): void{
+    this.jogos.sort();
+    console.log(this.jogos);
   }
 
   listar(): void{
@@ -63,11 +109,13 @@ export class JogoComponent implements OnInit {
     this.mostrarSnackBar(e.statusText);
   }
 
+  // tslint:disable-next-line: typedef
   selecionar(jogo: Jogo) {
     this.jogoSelecionado = jogo;
     this.inserindo = false;
   }
 
+  // tslint:disable-next-line: typedef
   cancelar() {
     this.jogo = undefined;
     this.listar();
@@ -78,6 +126,7 @@ export class JogoComponent implements OnInit {
     this.inserindo = false;
   }
 
+  // tslint:disable-next-line: typedef
   salvar() {
     if (!this.inserindo){
       this.inserir();
@@ -86,6 +135,7 @@ export class JogoComponent implements OnInit {
     }
   }
 
+  // tslint:disable-next-line: typedef
   private inserir(){
     this.jogoService.inserir(this.jogo).subscribe(() => {
       this.mostrarSnackBar('Jogo inserido com sucesso');
@@ -97,6 +147,7 @@ export class JogoComponent implements OnInit {
     });
   }
 
+  // tslint:disable-next-line: typedef
   private atualizar(){
     this.jogoService.atualizar(this.jogo).subscribe(() => {
       this.cancelar();
@@ -108,6 +159,7 @@ export class JogoComponent implements OnInit {
     });
   }
 
+  // tslint:disable-next-line: typedef
   criar() {
     this.inserindo = true;
     this.jogoSelecionado = {
@@ -115,14 +167,15 @@ export class JogoComponent implements OnInit {
       nome: '',
       sinopse: '',
       generos: '',
-      nota: '',
+      nota: 0,
       estado: '',
       review: ''
     };
   }
 
+  // tslint:disable-next-line: typedef
   remover(id: number){
-    this.jogoService.remover(id).subscribe(()=>{
+    this.jogoService.remover(id).subscribe( () => {
       this.listar();
     },
     error => {
@@ -130,6 +183,7 @@ export class JogoComponent implements OnInit {
     });
   }
 
+// tslint:disable-next-line: typedef
   editar(jogo: Jogo){
     this.jogo = jogo;
     this.inserindo = true;

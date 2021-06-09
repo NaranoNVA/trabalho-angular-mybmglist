@@ -54,7 +54,7 @@ export class GeneroComponent implements OnInit {
       this.generoService.inserir(this.genero).subscribe( genero => {
         this.listar();
         this.genero = undefined;
-        this.mostrarSnackBar('Género adicionado com sucesso!');
+        this.mostrarSnackBar('Gênero adicionado com sucesso!');
       });
     }
     else

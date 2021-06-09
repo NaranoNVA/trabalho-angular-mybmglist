@@ -1,7 +1,14 @@
+<div>
+<h1> Bem vindo de volta :) </h1>
+</div>
 <h2>Meus jogos:</h2>
 
 <div class="inputsJogo">
   <button mat-flat-button color="primary" (click)="novo();">Novo</button>
+</div>
+
+<div class="inputsJogo" style="margin-top: 1vh;">
+  <button mat-flat-button color="primary" (click)="filtra();">Filtrar</button>
 </div>
 
 <div *ngIf="jogo">
@@ -57,8 +64,8 @@
 <div>
   <mat-table class="inputsJogo" [dataSource]="jogos">
 
-    <ng-container matColumnDef="nome">
-      <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+    <ng-container matColumnDef="nome" > 
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Nome</mat-header-cell>
       <mat-cell *matCellDef="let jogo"> {{ jogo.nome }}</mat-cell>
     </ng-container>
 
@@ -69,12 +76,12 @@
 
       <ng-container matColumnDef="generos">
         <mat-header-cell *matHeaderCellDef>Gêneros:</mat-header-cell>
-        <mat-cell *matCellDef="let jogo"> {{ jogo.generos }} </mat-cell>
+        <mat-cell *matCellDef="let jogo, let genero"> {{ jogo.generos }} {{genero.icone}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="estado">
         <mat-header-cell *matHeaderCellDef>Status:</mat-header-cell>
-        <mat-cell *matCellDef="let jogo"> {{ jogo.estado }}</mat-cell>
+        <mat-cell *matCellDef="let jogo" id="status"> {{ jogo.estado }}</mat-cell>
       </ng-container>
   
       <ng-container matColumnDef="review">
@@ -84,7 +91,7 @@
 
       <ng-container matColumnDef="nota">
         <mat-header-cell *matHeaderCellDef>Nota:</mat-header-cell>
-        <mat-cell *matCellDef="let jogo"> {{ jogo.nota }}</mat-cell>
+        <mat-cell *matCellDef="let jogo" id="nota"> {{ jogo.nota }}</mat-cell>
       </ng-container>
 
     <ng-container matColumnDef="action">
@@ -102,6 +109,6 @@
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="colunas"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: colunas"></mat-row>
+    <mat-row *matRowDef="let row; columns: colunas" id="teste"></mat-row>
   </mat-table>
 </div>

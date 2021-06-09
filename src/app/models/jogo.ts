@@ -4,7 +4,7 @@ export class Jogo {
   nome = '';
   sinopse = '';
   generos = '';
-  nota = '';
+  nota = 0;
   estado = '';
   review = '';
 }

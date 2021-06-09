@@ -18,17 +18,22 @@ export class JogoService {
     return this.http.get<Jogo[]>(this.endereco);
   }
 
+  listarGenero(): Observable<Jogo['generos']>{
+    return this.http.get<Jogo['generos']>(this.endereco);
+  }
+
   inserir(jogo?: Jogo): Observable<Jogo>{
-    if (!jogo) return EMPTY;
+    if (!jogo) { return EMPTY; }
     return this.http.post<Jogo>(`${environment.baseUrl}jogos`, jogo);
   }
 
   atualizar(jogo?: Jogo): Observable<Jogo>{
-    if (!jogo) return EMPTY;
+    if (!jogo) { return EMPTY; }
     return this.http.put<Jogo>(`${environment.baseUrl}jogos/${jogo.id}`, jogo);
   }
 
   remover(id: number): Observable<any>{
     return this.http.delete(`${environment.baseUrl}jogos/${id}`);
   }
+
 }
