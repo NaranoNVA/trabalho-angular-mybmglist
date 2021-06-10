@@ -1,17 +1,10 @@
-<div>
-<h1> Bem vindo de volta :) </h1>
-</div>
 <h2>Meus jogos:</h2>
 
 <div class="inputsJogo">
   <button mat-flat-button color="primary" (click)="novo();">Novo</button>
 </div>
 
-<div class="inputsJogo" style="margin-top: 1vh;">
-  <button mat-flat-button color="primary" (click)="filtra();">Filtrar</button>
-</div>
-
-<div *ngIf="jogo">
+<div *ngIf="jogo" class="inputJogo">
   
 <div>
   <mat-form-field appearance="outline" class="inputsJogo">
@@ -62,42 +55,40 @@
 </div>
 
 <div>
-  <mat-table class="inputsJogo" [dataSource]="jogos">
+  <mat-table class="inputsJogo" matSort [dataSource]="jogos">
 
     <ng-container matColumnDef="nome" > 
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Nome</mat-header-cell>
-      <mat-cell *matCellDef="let jogo"> {{ jogo.nome }}</mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="headerTitle">Nome</mat-header-cell>
+      <mat-cell *matCellDef="let jogo" class="txtNome"> {{ jogo.nome }}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="sinopse">
-        <mat-header-cell *matHeaderCellDef>Sinopse</mat-header-cell>
-        <mat-cell *matCellDef="let jogo"> {{ jogo.sinopse }}</mat-cell>
+        <mat-header-cell *matHeaderCellDef class="headerTitle">Sinopse</mat-header-cell>
+        <mat-cell *matCellDef="let jogo" class="txtConteudo"> {{ jogo.sinopse }}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="generos">
-        <mat-header-cell *matHeaderCellDef>Gêneros:</mat-header-cell>
-        <mat-cell *matCellDef="let jogo, let genero"> {{ jogo.generos }} {{genero.icone}} </mat-cell>
+        <mat-header-cell *matHeaderCellDef class="headerTitle">Gêneros:</mat-header-cell>
+        <mat-cell *matCellDef="let jogo, let genero" class="txtConteudo"> {{ jogo.generos }} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="estado">
-        <mat-header-cell *matHeaderCellDef>Status:</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef class="headerTitle">Status:</mat-header-cell>
         <mat-cell *matCellDef="let jogo" id="status"> {{ jogo.estado }}</mat-cell>
       </ng-container>
   
       <ng-container matColumnDef="review">
-        <mat-header-cell *matHeaderCellDef>Review:</mat-header-cell>
-        <mat-cell *matCellDef="let jogo"> {{ jogo.review }}</mat-cell>
+        <mat-header-cell *matHeaderCellDef class="headerTitle">Review:</mat-header-cell>
+        <mat-cell *matCellDef="let jogo" class="txtConteudo"> {{ jogo.review }}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="nota">
-        <mat-header-cell *matHeaderCellDef>Nota:</mat-header-cell>
-        <mat-cell *matCellDef="let jogo" id="nota"> {{ jogo.nota }}</mat-cell>
+        <mat-header-cell *matHeaderCellDef class="headerTitle" mat-sort-header>Nota:</mat-header-cell>
+        <mat-cell *matCellDef="let jogo" id="nota" class="nota"> {{ jogo.nota }}</mat-cell>
       </ng-container>
 
     <ng-container matColumnDef="action">
-      <mat-header-cell *matHeaderCellDef>
-        Ações
-      </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef class="headerTitle"> Ações </mat-header-cell>
       <mat-cell *matCellDef="let jogo">
         <button mat-button (click)="editar(jogo)">
           <mat-icon>edit</mat-icon>

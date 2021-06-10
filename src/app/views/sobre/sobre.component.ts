@@ -23,7 +23,7 @@ export class SobreComponent implements OnInit {
   numJogados?: number;
   numTenho?: number;
   numQuero?: number;
-  generoMaisJogado?: any;
+  generosList?: any;
 
   ngOnInit(): void {
     this.listar();
@@ -51,7 +51,7 @@ export class SobreComponent implements OnInit {
   }
 
   private calculaGenero(): void{
-    
+    this.generosList = this.jogos.filter(jogo => jogo.generos).length;
   }
 
   private filtraZerados(): void{

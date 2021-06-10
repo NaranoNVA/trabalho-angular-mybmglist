@@ -20,3 +20,9 @@
 .bg-mat-sidenav{
   background-color: #4c4788;
 }
+
+.bg-sidenav{
+ background: url('https://i.ibb.co/fDzvN5N/7-74487-playing-video-games-logo-hd-png-download-removebg-preview.png'); 
+ background-repeat: no-repeat;
+ background-size: 90%;
+}

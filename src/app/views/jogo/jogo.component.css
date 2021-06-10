@@ -1,3 +1,8 @@
+*{
+    padding: 2px;
+}
+
+
 .inputsJogo{
     margin-left: 25px;
 }
@@ -7,23 +12,25 @@
 }
 
 .notaBaixa{
+    font-size: 20px;
     color: red;
     font-weight: bold;
 }
 
 .notaMedia{
+    font-size: 20px;
     color: lightgreen;
     font-weight: bold;
 }
 
 .notaAlta{
+    font-size: 20px;
     color: darkgreen;
     font-weight: bold;
 }
 
 .quero{
     font-weight: bold;
-    background-color: yellow;
     background: url('https://i.ibb.co/qYkbDXN/wait-pngrepo-com.png');
     background-size: 20%;
     background-repeat: no-repeat;
@@ -44,5 +51,31 @@
     background: url('https://i.ibb.co/2jDkmnG/Thumb-up-icon-2-svg.png" alt="Thumb-up-icon-2-svg');
     background-size: 20%;
     background-repeat: no-repeat;
-    background-position:  center;
+    background-position: center;
+}
+
+.headerTitle{
+    font-weight: bold;
+    font-size: 15px;
+    color: darkslategray;
+}
+
+.txtNome{
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.txtConteudo{
+    color: black;
+    font-size: 16px;
+}
+
+.nota{
+    margin-left: 20px;
+}
+
+.inputJogo{
+    border: 1.5px solid rgb(219, 226, 219);
+    border-radius: 6px;
 }

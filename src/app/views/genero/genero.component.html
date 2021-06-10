@@ -1,10 +1,10 @@
-<h2>Gêneros</h2>
+<h2>Gêneros:</h2>
 
-<div>
+<div class="inputsJogo">
   <button mat-flat-button color="primary" (click)="novo();">Novo</button>
 </div>
 
-<div *ngIf="genero">
+<div *ngIf="genero" class="inputJogo">
   <mat-form-field appearance="outline">
     <mat-label>Nome</mat-label>
     <input matInput placeholder="Placeholder"  [(ngModel)]="genero.nome">
@@ -22,28 +22,27 @@
         <mat-option value="piano"> <mat-icon>piano</mat-icon> </mat-option>
       </mat-select>
   </mat-form-field>
-
-  <button mat-flat-button color="primary" (click)="salvar()">Salvar</button>
-  <button mat-flat-button color="warn" (click)="cancelar()">Cancelar</button>
+<div>
+  <button mat-flat-button color="primary" (click)="salvar()" class="inputsJogo">Salvar</button>
+  <button mat-flat-button color="warn" (click)="cancelar()" class="inputsJogo">Cancelar</button>
+</div>
 </div>
 
 <div>
   <mat-table [dataSource]="generos" class="">
     
     <ng-container matColumnDef="nome">
-      <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
-      <mat-cell *matCellDef="let genero"> {{ genero.nome }}</mat-cell>
+      <mat-header-cell *matHeaderCellDef class="headerTitle">Nome</mat-header-cell>
+      <mat-cell *matCellDef="let genero" class="txtConteudo"> {{ genero.nome }}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="icone">
-      <mat-header-cell *matHeaderCellDef>icone</mat-header-cell>
-      <mat-cell *matCellDef="let genero"> <mat-icon> {{ genero.icone }} </mat-icon> </mat-cell>
+      <mat-header-cell *matHeaderCellDef class="headerTitle">Ícone</mat-header-cell>
+      <mat-cell *matCellDef="let genero" class="txtConteudo"> <mat-icon> {{ genero.icone }} </mat-icon> </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="acoes">
-      <mat-header-cell *matHeaderCellDef>
-        Ações
-      </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef class="headerTitle"> Ações </mat-header-cell>
       <mat-cell *matCellDef="let genero">
         <button mat-button (click)="atualizar(genero)">
           <mat-icon>edit</mat-icon>

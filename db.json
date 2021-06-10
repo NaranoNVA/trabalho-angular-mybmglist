@@ -12,12 +12,12 @@
       "review": "Adorei jogar, mas a comunidade é muito toxica, ou melhor dizendo. x1 Lixo?"
     },
     {
-      "nome": "",
+      "nome": "Skyrim",
       "sinopse": "",
       "generos": [
         "RPG"
       ],
-      "nota": "",
+      "nota": "9,5",
       "estado": "Zerei",
       "review": "",
       "id": 2
@@ -29,7 +29,7 @@
         "Hack and Slash",
         "RPG"
       ],
-      "nota": 0,
+      "nota": "7",
       "estado": "Tenho",
       "review": "",
       "id": 3
@@ -40,10 +40,21 @@
       "generos": [
         "FPS"
       ],
-      "nota": 0,
+      "nota": "5",
       "estado": "Quero",
       "review": "",
       "id": 4
+    },
+    {
+      "nome": "Super Mario World",
+      "sinopse": "",
+      "generos": [
+        "Aventura"
+      ],
+      "nota": "10",
+      "estado": "Zerei",
+      "review": "Muito Bom",
+      "id": 5
     }
   ],
   "generos": [

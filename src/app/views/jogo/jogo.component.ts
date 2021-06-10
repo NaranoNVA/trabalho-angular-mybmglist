@@ -4,7 +4,8 @@ import { GeneroService } from './../../services/genero.service';
 import { Genero } from 'src/app/models/genero';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/http';
-import { AfterContentChecked, Component, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterViewInit, Component, OnInit,  ViewChild } from '@angular/core';
+import {MatSort} from '@angular/material/sort';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { AfterContentChecked, Component, OnInit } from '@angular/core';
   templateUrl: './jogo.component.html',
   styleUrls: ['./jogo.component.css']
 })
-export class JogoComponent implements OnInit, AfterContentChecked {
+export class JogoComponent implements OnInit, AfterContentChecked, AfterViewInit, AfterViewInit {
 
   jogos = new Array<Jogo>();
   jogo?: Jogo;
@@ -24,6 +25,7 @@ export class JogoComponent implements OnInit, AfterContentChecked {
   inserindo = false;
   teste?: undefined;
   numJogados?: number;
+  sort!: (compareFn?: ((a: Jogo, b: Jogo) => number) | undefined) => Jogo[];
 
   // tslint:disable-next-line: no-shadowed-variable
   constructor(private jogoService: JogoService, private snackBar: MatSnackBar, private GeneroService: GeneroService) { }
@@ -31,6 +33,11 @@ export class JogoComponent implements OnInit, AfterContentChecked {
   ngOnInit(): void {
     this.listar();
     this.preencherArray();
+  }
+
+  // tslint:disable-next-line: typedef
+  ngAfterViewInit() {
+    this.jogos.sort = this.sort;
   }
 
   ngAfterContentChecked(): void {

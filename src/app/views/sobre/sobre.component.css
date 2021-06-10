@@ -1,0 +1,13 @@
+*{
+    padding: 2px;
+  }
+  
+.txtConteudo{
+    color: black;
+    font-size: 16px;
+  }
+
+.titulo{
+    font-weight: bold;
+    color: black;
+}
