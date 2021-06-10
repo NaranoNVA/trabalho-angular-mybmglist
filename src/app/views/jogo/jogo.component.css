@@ -78,6 +78,7 @@
 .inputJogo{
     border: 1.5px solid rgb(219, 226, 219);
     border-radius: 6px;
+    margin-bottom: 20px;
 }
 
 .blocoJogos{
