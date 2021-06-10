@@ -1,12 +1,16 @@
-<h2>Gêneros:</h2>
+<h2> <mat-icon class="iconGenero">format_list_bulleted</mat-icon> Gêneros</h2>
 
 <div class="inputsJogo">
-  <button mat-flat-button color="primary" (click)="novo();">Novo</button>
+  <a (click)="novo();" class="botaoNovo" target="_blank">
+    <div class="margin-top: 100px !important">
+      <mat-icon>add</mat-icon>
+    </div>
+  </a>
 </div>
 
 <div *ngIf="genero" class="inputJogo">
   <mat-form-field appearance="outline">
-    <mat-label>Nome</mat-label>
+    <mat-label class="icone">Nome</mat-label>
     <input matInput placeholder="Placeholder"  [(ngModel)]="genero.nome">
   </mat-form-field>
 
@@ -28,12 +32,12 @@
 </div>
 </div>
 
-<div>
-  <mat-table [dataSource]="generos" class="">
+<div class="blocoGeneros">
+  <mat-table [dataSource]="generos" class="blocoGeneros">
     
     <ng-container matColumnDef="nome">
       <mat-header-cell *matHeaderCellDef class="headerTitle">Nome</mat-header-cell>
-      <mat-cell *matCellDef="let genero" class="txtConteudo"> {{ genero.nome }}</mat-cell>
+      <mat-cell *matCellDef="let genero" class="txtNome"> {{ genero.nome }}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="icone">

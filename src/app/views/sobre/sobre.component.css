@@ -11,3 +11,30 @@
     font-weight: bold;
     color: black;
 }
+
+.estatistica{
+  width: 35%;
+}
+
+.estatisticas{
+  display: flex;
+  flex-direction: row;
+}
+
+.fotoEstatisticas{
+  display: flex;
+  flex-direction: column;
+}
+
+.textoEstatisticas{
+  display: flex;
+  flex-direction: column;
+}
+
+.sobreNos{
+  margin-top: 5vh;
+}
+
+.creditos{
+  margin-top: 10vh;
+}

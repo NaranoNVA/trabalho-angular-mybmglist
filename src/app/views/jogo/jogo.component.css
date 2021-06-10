@@ -19,7 +19,7 @@
 
 .notaMedia{
     font-size: 20px;
-    color: lightgreen;
+    color: rgb(129, 216, 129);
     font-weight: bold;
 }
 
@@ -78,4 +78,41 @@
 .inputJogo{
     border: 1.5px solid rgb(219, 226, 219);
     border-radius: 6px;
+}
+
+.blocoJogos{
+    background-color: rgb(238, 236, 232);
+    border-radius: 7px;
+}
+
+.botaoNovo{
+    position:fixed;
+    width:40px;
+    height:40px;
+    bottom:45px;
+    right:45px;
+    background-color: darkmagenta;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:30px;
+    box-shadow: 1px 1px 2px black;
+    z-index:1000;
+    cursor: pointer;
+  }
+  
+  .icone{
+    height: 20px;
+    color: black;
+  }
+#inputSinopse{
+    width: 675px !important;
+}
+
+#inputReview{
+    width: 430px !important;
+}
+
+#sinopse{
+    height: 150px !important;
 }

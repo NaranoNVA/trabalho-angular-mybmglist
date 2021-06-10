@@ -55,6 +55,17 @@
       "estado": "Zerei",
       "review": "Muito Bom",
       "id": 5
+    },
+    {
+      "nome": "Bully",
+      "sinopse": "",
+      "generos": [
+        "Ação"
+      ],
+      "nota": "8",
+      "estado": "Zerei",
+      "review": "Muito bom!",
+      "id": 6
     }
   ],
   "generos": [

@@ -1,7 +1,11 @@
-<h2>Meus jogos:</h2>
+<h2>  <mat-icon>collections_bookmark</mat-icon> Meus jogos </h2>
 
 <div class="inputsJogo">
-  <button mat-flat-button color="primary" (click)="novo();">Novo</button>
+  <a (click)="novo();" class="botaoNovo" target="_blank">
+    <div class="margin-top: 100px !important">
+      <mat-icon>add</mat-icon>
+    </div>
+  </a>
 </div>
 
 <div *ngIf="jogo" class="inputJogo">
@@ -29,7 +33,7 @@
 </div>
 
 <div>
-<mat-form-field appearance="outline" class="inputsJogo">
+<mat-form-field appearance="outline" class="inputsJogo" id="inputReview">
   <mat-label>Review:</mat-label>
   <input matInput [(ngModel)]="jogo.review">
 </mat-form-field>
@@ -41,9 +45,9 @@
 </div>
 
 <div>
-<mat-form-field appearance="outline" class="inputsJogo">
+<mat-form-field appearance="outline"  id="inputSinopse" class="inputsJogo">
   <mat-label>Sinopse: </mat-label>
-  <input matInput [(ngModel)]="jogo.sinopse">
+  <input matInput [(ngModel)]="jogo.sinopse"> 
 </mat-form-field>
 </div>
 
@@ -54,8 +58,8 @@
 
 </div>
 
-<div>
-  <mat-table class="inputsJogo" matSort [dataSource]="jogos">
+<div class="blocoJogos"> 
+  <mat-table class="blocoJogos inputsJogo" matSort [dataSource]="jogos">
 
     <ng-container matColumnDef="nome" > 
       <mat-header-cell *matHeaderCellDef mat-sort-header class="headerTitle">Nome</mat-header-cell>

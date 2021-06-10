@@ -29,3 +29,35 @@
   border: 1.5px solid rgb(219, 226, 219);
   border-radius: 6px;
 }
+
+.blocoGeneros{
+  background-color: rgb(238, 236, 232);
+  border-radius: 7px;
+}
+
+.txtNome{
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.botaoNovo{
+  position:fixed;
+  width:40px;
+  height:40px;
+  bottom:45px;
+  right:45px;
+  background-color: darkmagenta;
+  color:#FFF;
+  border-radius:50px;
+  text-align:center;
+  font-size:30px;
+  box-shadow: 1px 1px 2px black;
+  z-index:1000;
+  cursor: pointer;
+}
+
+.icone{
+  height: 20px;
+  color: black;
+}
