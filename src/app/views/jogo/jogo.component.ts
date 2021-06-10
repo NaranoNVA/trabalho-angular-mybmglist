@@ -60,11 +60,14 @@ export class JogoComponent implements OnInit, AfterContentChecked, AfterViewInit
 
   //Muda a cor do texto da nota de acordo com o seu valor
   aplicaCor(): void {
+    //Pega todas as notas e estados atraves do Id | o ^= requer apenas que o valor esteja incluido no Id
     const notas =  document.querySelectorAll('[id^="nota"]');
     const estado =  document.querySelectorAll('[id^="status"]');
+    //Percorre todas as notas e aplica um id unico
     for (let i = 0; i < notas.length; i++){
       notas[i].id = 'nota-' + i;
     }
+    //Percorre todas as notas de acordo com numero de jogos adicionados e aplica a classe de acordo com a nota
     for (let i = 0; i < this.jogos.length; i++){
       const nota = document.getElementById('nota-' + i );
       const notaNumber = Number(nota?.innerText);
@@ -77,9 +80,11 @@ export class JogoComponent implements OnInit, AfterContentChecked, AfterViewInit
       }
     }
 
+    //Percorre todas os estados e aplica um id unico
     for (let i = 0; i < estado.length; i++){
       estado[i].id = 'estado-' + i;
     }
+    //Percorre todas os estados de acordo com numero de jogos adicionados e aplica a classe de acordo o estado
     for (let i = 0; i < this.jogos.length; i++){
       // tslint:disable-next-line: no-shadowed-variable
       const estado = document.getElementById('estado-' + i );
