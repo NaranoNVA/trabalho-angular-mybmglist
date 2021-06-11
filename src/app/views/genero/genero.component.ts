@@ -30,7 +30,7 @@ export class GeneroComponent implements OnInit {
   listar(): void{
     this.generoService.listar().subscribe(
       generos => {
-        this.generos = generos;
+        this.generos = generos.reverse();
       },
       error => {
         const e = error as HttpErrorResponse;

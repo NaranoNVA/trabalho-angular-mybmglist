@@ -101,7 +101,18 @@ export class JogoComponent implements OnInit, AfterContentChecked, AfterViewInit
     this.jogoService.listar().subscribe(
       jogos => {
         this.jogos = jogos;
-        console.log(this.jogos);
+      },
+      error => {
+        const e = error as HttpErrorResponse;
+        console.log(e);
+        this.mostrarSnackBar('Erro ao listar os jogos! Tente novamente mais tarde!');
+      });
+  }
+
+  ordena(): void{
+    this.jogoService.listar().subscribe(
+      jogos => {
+        this.jogos = jogos.reverse();
       },
       error => {
         const e = error as HttpErrorResponse;

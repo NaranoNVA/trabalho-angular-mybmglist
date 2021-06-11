@@ -1,64 +1,54 @@
 {
   "jogos": [
     {
-      "id": 1,
-      "nome": "League of Legends",
-      "sinopse": "League of Legends é um jogo em equipes com mais de 140 Campeões com os quais você pode fazer jogadas insanas. Jogue agora, é grátis!",
-      "generos": [
-        "Moba"
-      ],
-      "nota": 8,
-      "estado": "Tenho",
-      "review": "Adorei jogar, mas a comunidade é muito toxica, ou melhor dizendo. x1 Lixo?"
-    },
-    {
       "nome": "Skyrim",
-      "sinopse": "",
+      "sinopse": "The Elder Scrolls V: Skyrim é um jogo eletrônico de RPG de ação desenvolvido pela Bethesda Game Studios.",
       "generos": [
         "RPG"
       ],
       "nota": "9,5",
       "estado": "Zerei",
-      "review": "",
+      "review": "Ótimo jogo mas muito bugado",
       "id": 2
     },
     {
-      "nome": "Nier",
-      "sinopse": "",
+      "nome": "Nier Replicant",
+      "sinopse": "O protagonista é um jovem que vive em uma aldeia remota. Para salvar sua irmã Yonah, que adoeceu devido ao Rabisco Negro, ele sai com Grimório Weiss, um estranho livro falante, para procurar os \"versos selados.\"",
       "generos": [
         "Hack and Slash",
         "RPG"
       ],
-      "nota": "7",
-      "estado": "Tenho",
-      "review": "",
+      "nota": "10",
+      "estado": "Zerei",
+      "review": "Jogo muito bom mas faltam legendas em português.",
       "id": 3
     },
     {
-      "nome": "RE8",
-      "sinopse": "",
+      "nome": "Resident Evil 6",
+      "sinopse": "Resident Evil 6 leva a história da série a um caso de bioterrorismo global",
       "generos": [
+        "Ação",
         "FPS"
       ],
-      "nota": "5",
-      "estado": "Quero",
-      "review": "",
+      "nota": "4",
+      "estado": "Tenho",
+      "review": "Ruim, parece jogo do Rambo.",
       "id": 4
     },
     {
       "nome": "Super Mario World",
-      "sinopse": "",
+      "sinopse": "Mário, para variar, vai salvar a Peach.",
       "generos": [
         "Aventura"
       ],
       "nota": "10",
       "estado": "Zerei",
-      "review": "Muito Bom",
+      "review": "Muito bom, um clássico.",
       "id": 5
     },
     {
       "nome": "Bully",
-      "sinopse": "",
+      "sinopse": "É tipo GTA, só que na escola...",
       "generos": [
         "Ação"
       ],
@@ -66,6 +56,51 @@
       "estado": "Zerei",
       "review": "Muito bom!",
       "id": 6
+    },
+    {
+      "nome": "Pal World",
+      "sinopse": "Aguardando lançamento.",
+      "generos": [
+        "Fantasia",
+        "RPG"
+      ],
+      "nota": 0,
+      "estado": "Quero",
+      "review": "-",
+      "id": 7
+    },
+    {
+      "nome": "Eurotruck Simulator",
+      "sinopse": "Simulador de caminhão.",
+      "generos": [
+        "Simulação"
+      ],
+      "nota": "10",
+      "estado": "Quero",
+      "review": "",
+      "id": 8
+    },
+    {
+      "nome": "Control",
+      "sinopse": "-",
+      "generos": [
+        "Ação"
+      ],
+      "nota": "10",
+      "estado": "Quero",
+      "review": "Irei jogar",
+      "id": 9
+    },
+    {
+      "nome": "Chrono Trigger",
+      "sinopse": "",
+      "generos": [
+        "RPG"
+      ],
+      "nota": "10",
+      "estado": "Zerei",
+      "review": "Melhor jogo de todos.",
+      "id": 10
     }
   ],
   "generos": [
@@ -109,11 +144,25 @@
       "id": 8
     },
     {
-      "nome": "Esporte",
+      "nome": "Futebol",
       "icone": [
         "sports_soccer"
       ],
       "id": 9
+    },
+    {
+      "nome": "Simulação",
+      "icone": [
+        "directions_car_filled"
+      ],
+      "id": 10
+    },
+    {
+      "nome": "Souls Like",
+      "icone": [
+        "mood_bad"
+      ],
+      "id": 11
     }
   ]
 }

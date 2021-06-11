@@ -19,14 +19,20 @@ export class SobreComponent implements OnInit {
   jogos = new Array<Jogo>();
   jogo?: Jogo;
   cor = '';
+  numJogos?: number;
   generos = new Array<Genero>();
   numJogados?: number;
   numTenho?: number;
   numQuero?: number;
   generosList?: any;
+  pctTerminado?: any;
+  pctTenho?: any;
+  pctQuero?: any;
+  numeroDeJogos?: any;
 
   ngOnInit(): void {
     this.listar();
+    this.contaJogos();
   }
 
   mostrarSnackBar(msg: string): void{
@@ -49,6 +55,9 @@ export class SobreComponent implements OnInit {
         this.mostrarSnackBar('Erro ao listar os jogos! Tente novamente mais tarde!');
       });
   }
+  private contaJogos(): void{
+    this.numJogos = this.jogos.length;
+  }
 
   private calculaGenero(): void{
     this.generosList = this.jogos.filter(jogo => jogo.generos).length;
@@ -56,13 +65,22 @@ export class SobreComponent implements OnInit {
 
   private filtraZerados(): void{
     this.numJogados = this.jogos.filter(jogo => jogo.estado === 'Zerei').length;
+    this.numJogos = this.jogos.length;
+    this.pctTerminado =  (this.numJogados * 100) / this.numJogos;
+    this.pctTerminado = this.pctTerminado.toFixed(2);
   }
 
   private filtraTenho(): void{
     this.numTenho = this.jogos.filter(jogo => jogo.estado === 'Tenho').length;
+    this.numJogos = this.jogos.length;
+    this.pctTenho =  (this.numTenho * 100) / this.numJogos;
+    this.pctTenho = this.pctTenho.toFixed(2);
   }
 
   private filtraQuero(): void{
     this.numQuero = this.jogos.filter(jogo => jogo.estado === 'Quero').length;
+    this.numJogos = this.jogos.length;
+    this.pctQuero =  (this.numQuero * 100) / this.numJogos;
+    this.pctQuero = this.pctQuero.toFixed(2);
   }
 }
