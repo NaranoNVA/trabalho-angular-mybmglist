@@ -48,6 +48,7 @@ export class JogoComponent implements OnInit, AfterContentChecked, AfterViewInit
     this.snackBar.open(msg, '', {duration: 3000});
   }
 
+  //Preenche a lista de gêneros cadastrados
   preencherArray(): void{
     this.GeneroService.listar().subscribe(
       generos => {
@@ -57,12 +58,16 @@ export class JogoComponent implements OnInit, AfterContentChecked, AfterViewInit
     );
   }
 
+  //Muda a cor do texto da nota de acordo com o seu valor
   aplicaCor(): void {
+    //Pega todas as notas e estados atraves do Id | o ^= requer apenas que o valor esteja incluido no Id
     const notas =  document.querySelectorAll('[id^="nota"]');
     const estado =  document.querySelectorAll('[id^="status"]');
+    //Percorre todas as notas e aplica um id unico
     for (let i = 0; i < notas.length; i++){
       notas[i].id = 'nota-' + i;
     }
+    //Percorre todas as notas de acordo com numero de jogos adicionados e aplica a classe de acordo com a nota
     for (let i = 0; i < this.jogos.length; i++){
       const nota = document.getElementById('nota-' + i );
       const notaNumber = Number(nota?.innerText);
@@ -75,9 +80,11 @@ export class JogoComponent implements OnInit, AfterContentChecked, AfterViewInit
       }
     }
 
+    //Percorre todas os estados e aplica um id unico
     for (let i = 0; i < estado.length; i++){
       estado[i].id = 'estado-' + i;
     }
+    //Percorre todas os estados de acordo com numero de jogos adicionados e aplica a classe de acordo o estado
     for (let i = 0; i < this.jogos.length; i++){
       // tslint:disable-next-line: no-shadowed-variable
       const estado = document.getElementById('estado-' + i );
@@ -92,11 +99,13 @@ export class JogoComponent implements OnInit, AfterContentChecked, AfterViewInit
     }
   }
 
+  //Filtro de ordenação dos jogos
   filtra(): void{
     this.jogos.sort();
     console.log(this.jogos);
   }
 
+  //Lista os jogos cadastrados
   listar(): void{
     this.jogoService.listar().subscribe(
       jogos => {
@@ -127,23 +136,27 @@ export class JogoComponent implements OnInit, AfterContentChecked, AfterViewInit
     this.mostrarSnackBar(e.statusText);
   }
 
+  //Seleciona um jogo na lista
   // tslint:disable-next-line: typedef
   selecionar(jogo: Jogo) {
     this.jogoSelecionado = jogo;
     this.inserindo = false;
   }
 
+  //Cancela a exibição dos campos para preenchimento
   // tslint:disable-next-line: typedef
   cancelar() {
     this.jogo = undefined;
     this.listar();
   }
 
+  //Exibe os campos para cadastrar um novo jogo
   novo(): void{
     this.jogo = new Jogo();
     this.inserindo = false;
   }
 
+  //Salva um novo jogo ou edita um existente
   // tslint:disable-next-line: typedef
   salvar() {
     if (!this.inserindo){
@@ -153,6 +166,7 @@ export class JogoComponent implements OnInit, AfterContentChecked, AfterViewInit
     }
   }
 
+  //Adiciona um novo jogo
   // tslint:disable-next-line: typedef
   private inserir(){
     this.jogoService.inserir(this.jogo).subscribe(() => {
@@ -165,6 +179,7 @@ export class JogoComponent implements OnInit, AfterContentChecked, AfterViewInit
     });
   }
 
+  //Atualiza os dados de um jogo existente
   // tslint:disable-next-line: typedef
   private atualizar(){
     this.jogoService.atualizar(this.jogo).subscribe(() => {
@@ -177,6 +192,7 @@ export class JogoComponent implements OnInit, AfterContentChecked, AfterViewInit
     });
   }
 
+  //Inciliza novJogo para preenchimento.
   // tslint:disable-next-line: typedef
   criar() {
     this.inserindo = true;
@@ -191,6 +207,7 @@ export class JogoComponent implements OnInit, AfterContentChecked, AfterViewInit
     };
   }
 
+  //Exclui um jogo existente
   // tslint:disable-next-line: typedef
   remover(id: number){
     this.jogoService.remover(id).subscribe( () => {
@@ -201,7 +218,8 @@ export class JogoComponent implements OnInit, AfterContentChecked, AfterViewInit
     });
   }
 
-// tslint:disable-next-line: typedef
+  //Abre os campos para edição de um jogo existente
+  // tslint:disable-next-line: typedef
   editar(jogo: Jogo){
     this.jogo = jogo;
     this.inserindo = true;
