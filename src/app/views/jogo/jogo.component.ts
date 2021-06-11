@@ -181,7 +181,7 @@ export class JogoComponent implements OnInit, AfterContentChecked, AfterViewInit
     });
   }
 
-  //Ao clicar em criar, gera um novo registro no JSON
+  //Inciliza novJogo para preenchimento.
   // tslint:disable-next-line: typedef
   criar() {
     this.inserindo = true;
